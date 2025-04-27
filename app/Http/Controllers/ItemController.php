@@ -16,12 +16,15 @@ class ItemController extends Controller
         $this->authorizeResource(Item::class, 'item');
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $acceptedItemID = Offer::whereNotNull('accepted_at')->pluck('offered_item_id')->toArray();
 
+        $filters = $request->only('name');
+
         return inertia('Items/Index', [
             'items' => Item::orderByDesc('created_at')
+                            ->filter($filters)
                             ->with('photos')
                             ->whereNotIn('id', $acceptedItemID)
                             ->where('sold_at', null)

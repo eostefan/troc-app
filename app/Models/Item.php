@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -14,6 +15,7 @@ class Item extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = ['name', 'description'];
+    protected $sortable = ['name', 'created_at'];
 
     public function offers(): HasMany
     {
@@ -43,5 +45,16 @@ class Item extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function scopeFilter(Builder $query, array $filters): Builder
+    {
+        return $query->when(
+            $filters['name'] ?? false,
+            fn($query, $value) => $query->where('name', 'LIKE', '%' . $value . '%')
+        )->when(
+            $filters['deleted'] ?? false,
+            fn($query, $value) => $query->withTrashed()
+        );
     }
 }
