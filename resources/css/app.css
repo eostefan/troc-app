@@ -1,0 +1,56 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+*,
+*::after, 
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    @apply bg-slate-800
+}
+
+label {
+    @apply text-slate-300 text-xs
+}
+
+input[type='text'],
+input[type='email'],
+select,
+input[type='password'] {
+    @apply bg-slate-300 h-8 border-1 rounded-sm border-slate-400 w-full pl-2
+}
+
+button {
+    cursor: pointer;
+}
+
+.form-confirm {
+    @apply bg-slate-300 rounded-sm text-sm text-slate-800 px-6 py-1
+}
+
+.pagination {
+    @apply flex justify-center gap-3
+}
+
+.pagination-link {
+    @apply bg-slate-300 rounded-sm text-sm text-slate-800 disabled:opacity-40 disabled:pointer-events-none px-2 py-1 whitespace-nowrap
+}
+
+.pagination-link.active {
+    @apply bg-slate-600 text-slate-300
+}
+
+.small-close-btn {
+    @apply absolute top-2 right-2 bg-white text-sm flex items-center justify-center w-5 h-5 rounded-3xl
+}

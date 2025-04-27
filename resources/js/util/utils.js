@@ -1,0 +1,51 @@
+export default {
+    judete:  [
+        "Alba",
+        "Arad",
+        "Arges",
+        "Bacau",
+        "Bihor",
+        "Bistrita-Nasaud",
+        "Botosani",
+        "Brasov",
+        "Braila",
+        "Bucuresti",
+        "Buzau",
+        "Caras-Severin",
+        "Calarasi",
+        "Cluj",
+        "Constanta",
+        "Covasna",
+        "Dambovita",
+        "Dolj",
+        "Galati",
+        "Giurgiu",
+        "Gorj",
+        "Harghita",
+        "Hunedoara",
+        "Ialomita",
+        "Iasi",
+        "Ilfov",
+        "Maramures",
+        "Mehedinti",
+        "Mures",
+        "Neamt",
+        "Olt",
+        "Prahova",
+        "Satu Mare",
+        "Salaj",
+        "Sibiu",
+        "Suceava",
+        "Teleorman",
+        "Timis",
+        "Tulcea",
+        "Vaslui",
+        "Valcea",
+        "Vrancea"
+      ],
+
+      formatDate(date) {
+        let new_date = new Date(date)
+        return new_date.toLocaleString()
+      }
+}
