@@ -6,7 +6,7 @@
             class="pagination-link"
             :class="{ active : page.active }"
             v-html="page.label"
-            :href="page.url ? page.url : '#'"
+            :href="page.url ? page.url.replace(window.location.origin, '') : '#'"
             :disabled="page.url === null"
             as="button"
         ></Link>
