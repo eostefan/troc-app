@@ -20,6 +20,5 @@ export default defineConfig({
         outDir: 'public/build',
         emptyOutDir: true,
         manifest: true,
-    },
-    base: process.env.APP_URL ? `${process.env.APP_URL}/build/` : '/build/',
+    }
 });
