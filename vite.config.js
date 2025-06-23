@@ -4,6 +4,7 @@ import laravel from 'laravel-vite-plugin';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
+    base: '/build/',
     plugins: [
         vue(),
         laravel({
@@ -11,13 +12,5 @@ export default defineConfig({
             refresh: true,
         }),
         tailwindcss(),
-    ],
-    server: {
-        https: true, // Optional for local dev
-    },
-    build: {
-        manifest: true,
-        outDir: 'public/build',
-    },
-    base: '/build/',
+    ]
 });
