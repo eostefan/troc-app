@@ -21,5 +21,5 @@ export default defineConfig({
         emptyOutDir: true,
         manifest: true,
     },
-    base: '/build/'
+    base: process.env.APP_URL ? `${process.env.APP_URL}/build/` : '/build/',
 });
