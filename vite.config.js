@@ -12,4 +12,12 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+    server: {
+        https: true, // Optional for local dev
+    },
+    build: {
+        manifest: true,
+        outDir: 'public/build',
+    },
+    base: process.env.APP_URL ? `${process.env.APP_URL}/build/` : '/build/',
 });
