@@ -9,6 +9,7 @@ export default defineConfig({
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],
             refresh: true,
+            buildDirectory: 'build'
         }),
         tailwindcss(),
     ],
@@ -16,8 +17,9 @@ export default defineConfig({
         https: true, // Optional for local dev
     },
     build: {
-        manifest: true,
         outDir: 'public/build',
+        emptyOutDir: true,
+        manifest: true,
     },
-    base: '/build/',
+    base: '/build/'
 });
